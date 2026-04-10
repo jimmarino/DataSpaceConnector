@@ -3,16 +3,33 @@
     "@version": 1.1,
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "Asset": "edc:Asset",
-    "PolicyDefinition": "edc:PolicyDefinition",
+    "PolicyDefinition": {
+      "@id": "edc:PolicyDefinition",
+      "@context": {
+        "@import": "http://www.w3.org/ns/odrl.jsonld",
+        "@propagate": true,
+        "uid": null,
+        "type": null
+      }
+    },
     "DataAddress": {
       "@id": "edc:DataAddress",
       "@context": {
-        "type": "edc:type"
+        "type": "edc:type",
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
       }
     },
     "ContractDefinition": "edc:ContractDefinition",
     "Criterion": "edc:Criterion",
-    "ContractRequest": "edc:ContractRequest",
+    "ContractRequest": {
+      "@id": "edc:ContractRequest",
+      "@context": {
+        "@import": "http://www.w3.org/ns/odrl.jsonld",
+        "@propagate": true,
+        "uid": null,
+        "type": null
+      }
+    },
     "QuerySpec": "edc:QuerySpec",
     "ContractNegotiation": {
       "@id": "edc:ContractNegotiation",
@@ -23,7 +40,15 @@
     "CallbackAddress": "edc:CallbackAddress",
     "NegotiationState": "edc:NegotiationState",
     "TerminateNegotiation": "edc:TerminateNegotiation",
-    "ContractAgreement": "edc:ContractAgreement",
+    "ContractAgreement": {
+      "@id": "edc:ContractAgreement",
+      "@context": {
+         "@import": "http://www.w3.org/ns/odrl.jsonld",
+         "@propagate": true,
+         "uid": null,
+         "type": null
+      }
+    },
     "TransferRequest": "edc:TransferRequest",
     "TransferState": "edc:TransferState",
     "TransferProcess": {
@@ -36,6 +61,16 @@
     "SuspendTransfer": "edc:SuspendTransfer",
     "Secret": "edc:Secret",
     "EndpointDataReferenceEntry": "edc:EndpointDataReferenceEntry",
+    "PolicyValidationResult": "edc:PolicyValidationResult",
+    "PolicyEvaluationPlanRequest": "edc:PolicyEvaluationPlanRequest",
+    "PolicyEvaluationPlan": "edc:PolicyEvaluationPlan",
+    "PermissionStep": "edc:PermissionStep",
+    "ProhibitionStep": "edc:ProhibitionStep",
+    "DutyStep": "edc:DutyStep",
+    "OrConstraintStep": "edc:OrConstraintStep",
+    "AndConstraintStep": "edc:AndConstraintStep",
+    "XoneConstraintStep": "edc:XoneConstraintStep",
+    "AtomicConstraintStep": "edc:AtomicConstraintStep",
     "properties": {
       "@id": "edc:properties",
       "@context": {
@@ -80,14 +115,7 @@
     },
     "providerId": "edc:providerId",
     "policy": {
-      "@id": "edc:policy",
-      "@context": [
-        "http://www.w3.org/ns/odrl.jsonld",
-        {
-          "uid": null,
-          "type": null
-        }
-      ]
+      "@id": "edc:policy"
     },
     "counterPartyId": "edc:counterPartyId",
     "state": "edc:state",
@@ -104,13 +132,67 @@
     "consumerId": "edc:consumerId",
     "contractSigningDate": "edc:contractSigningDate",
     "contractId": "edc:contractId",
-    "dataDestination": "edc:dataDestination",
+    "dataDestination": {
+      "@id": "edc:dataDestination",
+      "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+      }
+    },
+    "transferType": "edc:transferType",
     "correlationId": "edc:correlationId",
     "stateTimestamp": "edc:stateTimestamp",
     "value": "edc:value",
     "transferProcessId": "edc:transferProcessId",
     "contractNegotiationId": "edc:contractNegotiationId",
     "agreementId": "edc:agreementId",
-    "inForceDate": "edc:inForceDate"
+    "inForceDate": "edc:inForceDate",
+    "isValid": "edc:isValid",
+    "errors": {
+      "@id": "edc:errors",
+      "@container": "@set"
+    },
+    "policyScope": "edc:policyScope",
+    "preValidators": {
+      "@id": "edc:preValidators",
+      "@container": "@set"
+    },
+    "postValidators": {
+      "@id": "edc:postValidators",
+      "@container": "@set"
+    },
+    "permissionSteps": {
+      "@id": "edc:permissionSteps",
+      "@container": "@set"
+    },
+    "prohibitionSteps": {
+      "@id": "edc:prohibitionSteps",
+      "@container": "@set"
+    },
+    "obligationSteps": {
+      "@id": "edc:obligationSteps",
+      "@container": "@set"
+    },
+    "constraintSteps": {
+      "@id": "edc:constraintSteps",
+      "@container": "@set"
+    },
+    "filteringReasons": {
+      "@id": "edc:filteringReasons",
+      "@container": "@set"
+    },
+    "isFiltered": "edc:isFiltered",
+    "functionName": "edc:functionName",
+    "functionParams": {
+      "@id": "edc:functionParams",
+      "@container": "@set"
+    },
+    "dutySteps": {
+      "@id": "edc:dutySteps",
+      "@container": "@set"
+    },
+    "ruleFunctions": {
+      "@id": "edc:ruleFunctions",
+      "@container": "@set"
+    }
   }
 }
